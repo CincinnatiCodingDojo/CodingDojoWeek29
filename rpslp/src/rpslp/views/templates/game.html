@@ -1,0 +1,19 @@
+{% extends "rpslp/views/templates/base.html" %}
+{% block content %}
+  <div class="game">
+    <form>
+      <select id="choice">
+        <option>Rock</option> 
+        <option>Paper</option> 
+        <option>Scissors</option> 
+        <option>Lizard</option> 
+        <option>Spock</option> 
+      </select>
+      
+      <input type="submit" value="pick"/>
+    </form>
+    
+    <label id="resultLabel"></label>
+  </div>
+
+{% endblock %}
