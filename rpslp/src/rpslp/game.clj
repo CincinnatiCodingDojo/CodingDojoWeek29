@@ -1,10 +1,21 @@
 (ns rpslp.game)
 
-(def victoryMap {"scissors" ["paper" "lizard"]
-				:paper [:spock :rock]})
+(defn get-computer-pick []
+	"Rock")
 
-(defn evaluateContest [choice1 choice2] 
-	(let lowerChoice clojure.string/lower-case choice1)
-	(if (= lowerChoice choice2) 0
-	(if (> (.indexOf (get victoryMap (clojure.string/lower-case choice1) choice2) -1) 1 -1)))
-)
+(def victory-map
+	{"Rock" #{"Scissors" "Lizard"}
+     "Paper" #{"Spock" "Rock"}
+     "Scissors" #{"Paper" "Lizard"}
+     "Lizard" #{"Spock" "Paper"}
+     "Spock" #{"Rock" "Scissors"}})
+
+(defn get-winner [pick1 pick2]
+	(cond
+		(= pick1 pick2) "Tie"
+		(contains? (victory-map pick1) pick2) "You win"
+		:else "You lose"))
+
+; (defn format-result [action computer winner]
+
+; 	)

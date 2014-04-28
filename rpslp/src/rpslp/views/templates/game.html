@@ -1,19 +1,20 @@
 {% extends "rpslp/views/templates/base.html" %}
 {% block content %}
-  <div class="game">
-    <form>
-      <select id="choice">
-        <option>Rock</option> 
-        <option>Paper</option> 
-        <option>Scissors</option> 
-        <option>Lizard</option> 
-        <option>Spock</option> 
-      </select>
-      
-      <input type="submit" value="pick"/>
-    </form>
-    
-    <label id="resultLabel"></label>
-  </div>
-
+  <p>Game content</p>
+  <form method="POST" action="/game">
+  	Pick your action:
+  	<select id="action" name="action">
+  		<option>Rock</option>
+  		<option>Paper</option>
+  		<option>Scissors</option>
+  		<option>Lizard</option>
+  		<option>Spock</option>
+  	</select>
+  	<p/><p/>
+  	<input type="submit" value="Can you beat the computer?!?!"/>
+ 	<p/><p/>
+ 	<br>You picked {{action}}
+ 	<br>The computer picked {{computer-pick}}
+  	<br>{{result}}
+  </form>
 {% endblock %}
